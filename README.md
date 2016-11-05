@@ -15,6 +15,7 @@ Or grab the script from the [build folder](build/).
 ```javascript
 ptth.use(function(res, next) {
 	console.log(res.status);
+	next();
 });
 
 ptth('http://swapi.co/api/starships')
