@@ -8,6 +8,8 @@ A simple http client with middleware for the browser
 npm install --save ptth
 ```
 
+Or grab the script from the [build folder](build/).
+
 ## Code Example
 
 ```javascript
@@ -31,8 +33,6 @@ ptth('http://swapi.co/api/starships')
 ## Motivation
 
 Having experienced the power of the middleware pattern in Node.js and particularly Express, I wanted to replicate the workflow it encourages in a browser environment for HTTP calls.
-
-Or grab the script from the [build folder](build/).
 
 ## API Reference
 
