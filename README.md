@@ -30,10 +30,6 @@ ptth('http://swapi.co/api/starships')
 // logs response status code and body of the response
 ``` 
 
-## Motivation
-
-Having experienced the power of the middleware pattern in Node.js and particularly Express, I wanted to replicate the workflow it encourages for HTTP calls in a browser environment.
-
 ## API Reference
 
 See the [docs](docs/docs.md).
