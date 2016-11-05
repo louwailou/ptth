@@ -82,6 +82,8 @@ request.before(function(req, next) {
 
 #### Use
 
+Define middleware to be called after the response has returned. Define logic once.
+
 ```javascript
 request.use(function(res, next) {
 	if (res.body.token) {
