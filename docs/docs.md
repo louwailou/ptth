@@ -87,7 +87,7 @@ Define middleware to be called after the response has returned. Define logic onc
 ```javascript
 request.use(function(res, next) {
 	if (res.body.token) {
-    	cookie.set('token', res.body.token);
+    	cookie.save('token', res.body.token);
     }
     next();
 });
@@ -108,7 +108,7 @@ request.data('VariableOne=ValueOne&VariableTwo=ValueTwo');
 
 ### Headers
 
-By default, all resources are created with `Content-Type` and `Accept` headers set to `application/json`.
+By default, all requests are created with `Content-Type` and `Accept` headers set to `application/json`.
 
 #### Set
 
