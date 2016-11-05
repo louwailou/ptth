@@ -90,6 +90,18 @@ describe('ptth', function() {
 			jasmine.Ajax.requests.mostRecent().respondWith(OKResp);
 			expect(doneFn).not.toHaveBeenCalled();
 		});
+
+		it('middleware added as method callback parameter does not persist betweeen requests', function() {
+			var doneFn = jasmine.createSpy('success');
+			req.get(doneFn);
+			expect(doneFn).not.toHaveBeenCalled();
+			jasmine.Ajax.requests.mostRecent().respondWith(OKResp);
+			expect(doneFn).toHaveBeenCalled();
+			setTimeout(function() {
+				req.get();
+			}, 1000);
+			expect(doneFn.calls.count()).toEqual(1);
+		});
 	});
 
 });

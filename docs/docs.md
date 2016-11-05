@@ -93,6 +93,24 @@ request.use(function(res, next) {
 });
 ```
 
+### Global middleware
+
+Define middleware to be set on all requests.
+
+```javascript
+ptth.before(function(req, next) {
+    // do something to request
+    next();
+});
+```
+
+```javascript
+ptth.use(function(res, next) {
+    // do something with response
+    next();
+});
+```
+
 ### Data
 
 Attach a payload for the next request.
@@ -280,3 +298,32 @@ request.get(function(res, next) {
     res.options
 });
 ```
+
+## Example use cases
+
+Create an instance to send all authenticated requests from.
+
+```javascript
+const authorisedRequests = ptth();
+
+authorisedRequests.before(function(req, next) {
+    const token = cookie.load('token');
+    // only send request if we have a token
+    if (token) {
+        req.header('Authorization', token);
+        next();
+    } else {
+        // user's token has expired and must sign in again
+        // request is not sent
+        window.location.href = '/login';
+    }
+});
+
+// elsewhere in code
+authorisedRequests.get('/api/endpoint', function(res) {
+    // user is authenticated - do something with response. 
+});
+```
+
+Middleware stacks and headers persist between requests from each instance (middleware passed as callback functions to get, head, etc. do not persist), unless `reset` is called. Data and params are reset after each request is sent. 
+
