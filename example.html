@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style type="text/css">
+        body {
+            border-top: 5px solid rgb(30, 185, 61);
+            padding: 20px;
+            margin: 0;
+        }
+        </style>
+
+
+    </head>
+    <body>
+
+        <div id="container"></div>
+
+        <script src="./build/ptth.js"></script>
+        <script type="text/javascript">
+        /*
+            // example showing global middleware
+            ptth.before(function(req, next) {
+                // code
+                next();
+            });
+
+            ptth.use(function(req, next) {
+                console.log(req.body);
+                next();
+            });
+
+            ptth('http://swapi.co/api/starships').get(function(res) {
+                console.log(res)
+            });
+        */
+
+        var req = ptth();
+
+        req.before(function(request, next) {
+            console.log(request._url);
+            next();
+        });
+
+        req.use(function(res, next) {
+            console.log(res);
+            next();
+        });
+
+        req.use(function(res, next) {
+            console.log(res.url + ' lol');
+            next();
+        });
+
+        req.params({ 'page': '2' });
+
+        req.url('http://swapi.co/api/starships').get();
+
+        req.use(function(res, next) {
+            console.log(res.url + ' lol 2');
+        });
+
+        req.url('http://swapi.co/api/people').get();
+
+        req.get('http://swapi.co/api');
+
+        // logs
+        // http://swapi.co/api/starships (example.html, line 48)
+        // http://swapi.co/api/people (example.html, line 48)
+        // http://swapi.co/api/people (example.html, line 56)
+        // Response {method: "get", resource: Request, xhr: XMLHttpRequest, url: "http://swapi.co/api/starships/", statusText: "OK", …} 
+        // Response {method: "get", resource: Request, xhr: XMLHttpRequest, url: "http://swapi.co/api/people/", statusText: "OK", …}
+
+
+        </script>
+
+    </body>
+</html>
