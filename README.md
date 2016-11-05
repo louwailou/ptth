@@ -32,7 +32,7 @@ ptth('http://swapi.co/api/starships')
 
 ## Motivation
 
-Having experienced the power of the middleware pattern in Node.js and particularly Express, I wanted to replicate the workflow it encourages in a browser environment for HTTP calls.
+Having experienced the power of the middleware pattern in Node.js and particularly Express, I wanted to replicate the workflow it encourages for HTTP calls in a browser environment.
 
 ## API Reference
 
