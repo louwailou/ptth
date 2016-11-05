@@ -1,7 +1,5 @@
 # ptth
 
-## Synopsis
-
 A simple http client with middleware for the browser
 
 ## Code Example
