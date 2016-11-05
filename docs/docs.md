@@ -143,12 +143,16 @@ Check if a request has a given header set to a given value.
 
 ```javascript
 request.using('Content-Type', 'application/json');
+```
 
+```javascript
 request.using({
 	'Content-Type': 'application/json',
 	'Accept': 'application/json'
 });
 ```
+
+Only returns true if all provided property/value pairs match the request.
 
 #### Convenience methods
 
