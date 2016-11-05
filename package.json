@@ -1,6 +1,6 @@
 {
   "name": "ptth",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A simple http client with middleware for the browser",
   "main": "index.js",
   "scripts": {
