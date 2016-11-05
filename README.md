@@ -2,6 +2,12 @@
 
 A simple http client with middleware for the browser
 
+## Installation
+ 
+```javascript
+npm install --save ptth
+```
+
 ## Code Example
 
 ```javascript
@@ -25,12 +31,6 @@ ptth('http://swapi.co/api/starships')
 ## Motivation
 
 Having experienced the power of the middleware pattern in Node.js and particularly Express, I wanted to replicate the workflow it encourages in a browser environment for HTTP calls.
-
-## Installation
- 
-```javascript
-npm install --save ptth
-```
 
 Or grab the script from the [build folder](build/).
 
