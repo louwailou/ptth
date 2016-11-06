@@ -337,7 +337,7 @@ authorisedRequests.get('/api/endpoint', function(res) {
     // user is authenticated - do something with response. 
 });
 
-// elsewhere - use same request instance
+// elsewhere - use same ptth instance
 authorisedRequests.get('/api/endpoint/2', function(res) {
     // user is authenticated 
 });
