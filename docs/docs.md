@@ -319,6 +319,19 @@ authorisedRequests.before(function(req, next) {
     }
 });
 
+authorisedRequests.use(function(res, next) {
+    if (res.unauthorised) {
+        // user's token has expired on the server
+        // redirect them to login again
+        window.location.href = '/login';
+    } else 
+
+    if (res.body.token) {
+        cookie.save('token', res.body.token);
+        next();
+    }
+});
+
 // elsewhere in code
 authorisedRequests.get('/api/endpoint', function(res) {
     // user is authenticated - do something with response. 
