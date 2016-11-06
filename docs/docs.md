@@ -336,6 +336,11 @@ authorisedRequests.use(function(res, next) {
 authorisedRequests.get('/api/endpoint', function(res) {
     // user is authenticated - do something with response. 
 });
+
+// elsewhere - use same request instance
+authorisedRequests.get('/api/endpoint/2', function(res) {
+    // user is authenticated 
+});
 ```
 
 Middleware stacks and headers persist between requests from each instance (middleware passed as callback functions to get, head, etc. do not persist), unless `reset` is called. Data and params are reset after each request is sent. 
